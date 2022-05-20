@@ -28,12 +28,14 @@ namespace chisel
 {
     bool SaveMeshPLYASCII(const std::string& fileName, const chisel::MeshConstPtr& mesh)
     {
+        std::cout << fileName << "\n";
         std::ofstream stream(fileName.c_str());
 
         if (!stream)
         {
             return false;
         }
+        std::cout << "GOING TO" << "\n";
 
         size_t numPoints = mesh->vertices.size();
         stream << "ply" << std::endl;
@@ -52,6 +54,7 @@ namespace chisel
         stream << "property list uchar int vertex_index" << std::endl;
         stream << "end_header" << std::endl;
 
+        std::cout << "HEADRE DONE" << "\n";
         size_t vert_idx = 0;
         for (const Vec3& vert : mesh->vertices)
         {
@@ -70,6 +73,7 @@ namespace chisel
             stream << std::endl;
             vert_idx++;
         }
+        std::cout << "MESHING" << "\n";
 
         for (size_t i = 0; i < mesh->indices.size(); i+=3)
         {
@@ -83,6 +87,6 @@ namespace chisel
             stream << std::endl;
         }
 
-
+    return true;
     }
 }

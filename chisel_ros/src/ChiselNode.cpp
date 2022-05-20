@@ -80,7 +80,7 @@ int main(int argc, char** argv)
     nh.param("mesh_topic", meshTopic, std::string("full_mesh"));
     nh.param("chunk_box_topic", chunkBoxTopic, std::string("chunk_boxes"));
     nh.param("fusion_mode", modeString, std::string("DepthImage"));
-    nh.param("file_path", fileToSave, std::string("/home/mklingen/.ros/chisel.ply"));
+    nh.param("file_path", fileToSave, std::string("chisel.ply"));
 
     if(modeString == "DepthImage")
     {
@@ -170,7 +170,7 @@ int main(int argc, char** argv)
 
     if (saveFile)
     {
-        ROS_INFO("Saving to %s\n", fileToSave.c_str());
+        ROS_INFO("\n\nSaving to %s\n", fileToSave.c_str());
         server->GetChiselMap()->SaveAllMeshesToPLY(fileToSave);
     }
 

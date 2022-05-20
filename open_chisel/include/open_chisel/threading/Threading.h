@@ -26,7 +26,7 @@
 #include <cstddef>
 #include <thread>
 #include <algorithm>
-
+#include <vector>
 namespace chisel
 {
     template<typename Iterator, class Function>
